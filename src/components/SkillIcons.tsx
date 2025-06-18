@@ -12,7 +12,7 @@ const skills = [
   },
   {
     name: 'TypeScript',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+    icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg',
   },
   {
     name: 'Node.js',
@@ -20,7 +20,7 @@ const skills = [
   },
   {
     name: 'MongoDB',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+    icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg',
   },
   {
     name: 'TensorFlow',
@@ -52,6 +52,15 @@ const SkillIcons = () => {
               src={skill.icon}
               alt={skill.name}
               className="w-full h-full object-contain"
+              onError={(e) => {
+                // Fallback for failed image loads
+                const target = e.target as HTMLImageElement;
+                if (skill.name === 'TypeScript') {
+                  target.src = 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg';
+                } else if (skill.name === 'MongoDB') {
+                  target.src = 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg';
+                }
+              }}
             />
           </div>
           <span className="text-sm font-medium">{skill.name}</span>
