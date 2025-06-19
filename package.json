@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "performance": "node scripts/performance-check.js"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
